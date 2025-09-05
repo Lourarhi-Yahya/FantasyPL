@@ -1,0 +1,13 @@
+# Example Fly.io config (uses Dockerfile)
+app = "fpl-twitter-recs-bot"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  QUERY_WINDOW_HOURS = "72"
+  TEAM_FILTER = ""
+
+[processes]
+  app = "python app/bot.py"

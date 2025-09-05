@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: fpl-twitter-recs-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app/bot.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: X_BEARER_TOKEN
+        sync: false
+      - key: QUERY_WINDOW_HOURS
+        value: "72"
+      - key: TEAM_FILTER
+        value: ""

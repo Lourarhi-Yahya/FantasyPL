@@ -1,0 +1,13 @@
+services:
+  fpl-bot:
+    build: .
+    command: ["python", "app/bot.py"]
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - X_BEARER_TOKEN=${X_BEARER_TOKEN}
+      - QUERY_WINDOW_HOURS=${QUERY_WINDOW_HOURS:-72}
+      - TEAM_FILTER=
+    volumes:
+      - ./:/code
+    working_dir: /code
+    restart: unless-stopped
